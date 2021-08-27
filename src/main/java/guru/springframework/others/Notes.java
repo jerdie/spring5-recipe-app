@@ -1,4 +1,6 @@
-package guru.springframework.recipe;
+package guru.springframework.others;
+
+import guru.springframework.recipe.Recipe;
 
 import javax.persistence.*;
 

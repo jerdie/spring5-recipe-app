@@ -1,4 +1,7 @@
-package guru.springframework.recipe;
+package guru.springframework.others;
+
+import guru.springframework.recipe.Recipe;
+import guru.springframework.uom.UnitOfMeasure;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

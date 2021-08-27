@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recipe Home</title>
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Description</th>
+        <th style="width: 150px;">Difficulty</th>
+        <th style="width: 150px;">URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipeList}">
+        <td th:text="${recipe.getDescription()}">1</td>
+        <td th:text="${recipe.getDifficulty()}">Joe</td>
+        <td th:text="${recipe.getUrl()}">Buck</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
