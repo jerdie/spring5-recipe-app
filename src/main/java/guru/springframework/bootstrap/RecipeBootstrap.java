@@ -90,10 +90,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         salt.setUnitOfMeasure(teaspoon);
         salt.setAmount(new BigDecimal(".25"));
-        avocados.setRecipe(guacamole);
-        salt.setRecipe(guacamole);
-        guacamole.getIngredient().add(avocados);
-        guacamole.getIngredient().add(salt);
+
+        guacamole.addIngredient(avocados);
+        guacamole.addIngredient(salt);
 
         List<Recipe> recipes = new ArrayList<>();
         recipes.add(guacamole);

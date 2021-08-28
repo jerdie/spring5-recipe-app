@@ -30,7 +30,7 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredient = new HashSet<>();
 
     @Enumerated(value = EnumType.STRING)
@@ -38,7 +38,7 @@ public class Recipe {
 
     @ManyToMany
     @JoinTable(joinColumns = @JoinColumn(name = "recipe_id"),
-    inverseJoinColumns = @JoinColumn(name = "category_id"))
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Set<Ingredient> getIngredient() {
@@ -143,5 +143,10 @@ public class Recipe {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredient.add(ingredient);
     }
 }
