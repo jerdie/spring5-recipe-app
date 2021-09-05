@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 public class IndexController {
 
-    private final RecipeServiceImpl recipeServiceImpl;
+    private final RecipeService recipeServiceImpl;
 
     @RequestMapping({"", "/", "/index"})
     public String index(Model model) {
