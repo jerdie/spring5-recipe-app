@@ -33,7 +33,7 @@ public class Recipe {
     private Notes notes;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredient = new HashSet<>();
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
@@ -45,6 +45,14 @@ public class Recipe {
 
     public void addIngredient(Ingredient ingredient) {
         ingredient.setRecipe(this);
-        this.ingredient.add(ingredient);
+        this.ingredients.add(ingredient);
     }
+
+    public void setNotes(Notes notes) {
+        if (notes != null) {
+            this.notes = notes;
+            notes.setRecipe(this);
+        }
+    }
+
 }

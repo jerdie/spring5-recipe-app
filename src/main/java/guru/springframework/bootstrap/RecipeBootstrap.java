@@ -4,6 +4,7 @@ import guru.springframework.category.Category;
 import guru.springframework.category.CategoryRepository;
 import guru.springframework.others.Difficulty;
 import guru.springframework.others.Ingredient;
+import guru.springframework.others.Notes;
 import guru.springframework.recipe.Recipe;
 import guru.springframework.recipe.RecipeRepository;
 import guru.springframework.uom.UnitOfMeasure;
@@ -45,8 +46,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         if (!teaspoonOptional.isPresent()) {
             throw new RuntimeException("Teaspon does not exist!");
         }
+        Optional<UnitOfMeasure> eachOptional = unitOfMeasureRepository.findByDescription("Each");
+        if (!eachOptional.isPresent()) {
+            throw new RuntimeException("Each does not exist!");
+        }
 
         UnitOfMeasure teaspoon = teaspoonOptional.get();
+        UnitOfMeasure each = eachOptional.get();
 
         Optional<Category> mexicanOptional = categoryRepository.findByDescription("Mexican");
         if (!mexicanOptional.isPresent()) {
@@ -85,14 +91,19 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacamole.setDescription("Guacamole");
         guacamole.setDifficulty(Difficulty.EASY);
         guacamole.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
-
+        guacamole.setServings(4);
+        guacamole.setSource("Simply Recipes");
+        Notes notes = new Notes();
+        notes.setRecipeNotes("HMMM.");
+        guacamole.setNotes(notes);
         Ingredient avocados = new Ingredient();
         avocados.setDescription("Avocados");
+        avocados.setUom(each);
         avocados.setAmount(new BigDecimal(2));
         Ingredient salt = new Ingredient();
         salt.setDescription("Salt");
 
-        salt.setUnitOfMeasure(teaspoon);
+        salt.setUom(teaspoon);
         salt.setAmount(new BigDecimal(".25"));
 
         guacamole.addIngredient(avocados);

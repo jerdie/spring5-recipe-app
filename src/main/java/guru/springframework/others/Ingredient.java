@@ -23,6 +23,6 @@ public class Ingredient {
     private Recipe recipe;
 
     @OneToOne
-    private UnitOfMeasure unitOfMeasure;
+    private UnitOfMeasure uom;
 
 }
