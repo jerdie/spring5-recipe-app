@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IngredientController {
 
     private final RecipeService recipeService;
+    private final IngredientService ingredientService;
 
     @GetMapping
     @RequestMapping("/recipe/{recipeId}/ingredients")
@@ -21,5 +22,14 @@ public class IngredientController {
         RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
         model.addAttribute("recipe", recipeCommand);
         return "/recipe/ingredient/list";
+    }
+
+    @GetMapping
+    @RequestMapping("/recipe/{recipeId}/ingredient/{id}/show")
+    public String show(@PathVariable String recipeId,
+                       @PathVariable String id, Model model) {
+        IngredientCommand ingredientCommand = ingredientService.findByRecipeIdAndId(Long.valueOf(recipeId), Long.valueOf(id));
+        model.addAttribute("ingredient", ingredientCommand);
+        return "/recipe/ingredient/show";
     }
 }

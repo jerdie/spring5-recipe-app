@@ -10,6 +10,9 @@ import java.math.BigDecimal;
 @Data
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Ingredient {
 
     @Id
