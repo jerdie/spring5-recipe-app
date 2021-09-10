@@ -3,7 +3,7 @@ package guru.springframework.bootstrap;
 import guru.springframework.category.Category;
 import guru.springframework.category.CategoryRepository;
 import guru.springframework.others.Difficulty;
-import guru.springframework.others.Ingredient;
+import guru.springframework.recipe.ingredient.Ingredient;
 import guru.springframework.others.Notes;
 import guru.springframework.recipe.Recipe;
 import guru.springframework.recipe.RecipeRepository;

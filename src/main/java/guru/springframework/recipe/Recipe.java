@@ -2,7 +2,7 @@ package guru.springframework.recipe;
 
 import guru.springframework.category.Category;
 import guru.springframework.others.Difficulty;
-import guru.springframework.others.Ingredient;
+import guru.springframework.recipe.ingredient.Ingredient;
 import guru.springframework.others.Notes;
 import lombok.Data;
 

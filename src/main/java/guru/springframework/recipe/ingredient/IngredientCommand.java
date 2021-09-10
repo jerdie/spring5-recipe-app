@@ -1,4 +1,4 @@
-package guru.springframework.others;
+package guru.springframework.recipe.ingredient;
 
 import guru.springframework.uom.UnitOfMeasureCommand;
 import lombok.Getter;
