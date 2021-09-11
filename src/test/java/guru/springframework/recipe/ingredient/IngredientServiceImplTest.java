@@ -6,7 +6,6 @@ import guru.springframework.converters.UnitOfMeasureCommandToUnitOfMeasure;
 import guru.springframework.converters.UnitOfMeasureToUnitOfMeasureCommand;
 import guru.springframework.recipe.Recipe;
 import guru.springframework.recipe.RecipeRepository;
-import guru.springframework.recipe.RecipeService;
 import guru.springframework.uom.UnitOfMeasureRepository;
 import org.junit.Before;
 import org.junit.Test;
